@@ -1,0 +1,47 @@
+{
+  "ModId": "fftivc.gameplay.darkknightexpansion",
+  "ModName": "Dark Knight Expansion",
+  "ModAuthor": "Zodiark",
+  "ModVersion": "0.9.0",
+  "ModDescription": "Expand the Dark Knight skillset with 3 additional abilities.",
+  "ModDll": "",
+  "ModIcon": "preview.png",
+  "ModR2RManagedDll32": "",
+  "ModR2RManagedDll64": "",
+  "ModNativeDll32": "",
+  "ModNativeDll64": "",
+  "Tags": [
+    "Character"
+  ],
+  "CanUnload": null,
+  "HasExports": null,
+  "IsLibrary": false,
+  "ReleaseMetadataFileName": "fftivc.gameplay.darkknightexpansion.ReleaseMetadata.json",
+  "IgnoreRegexes": [
+    ".*\\.json",
+    "fftivc\\.gameplay\\.darkknightexpansion\\.nuspec"
+  ],
+  "IncludeRegexes": [
+    "\\.deps\\.json",
+    "\\.runtimeconfig\\.json",
+    "ModConfig\\.json",
+    "ModConfig\\.json"
+  ],
+  "PluginData": {
+    "GitHubRelease": {
+      "UserName": "Zodi-ark",
+      "RepositoryName": "Dark-Knight-Expansion",
+      "UseReleaseTag": true,
+      "AssetFileName": "fftivc.gameplay.darkknightexpansion.zip"
+    }
+  },
+  "IsUniversalMod": false,
+  "ModDependencies": [
+    "fftivc.utility.modloader"
+  ],
+  "OptionalDependencies": [],
+  "SupportedAppId": [
+    "fft_enhanced.exe"
+  ],
+  "ProjectUrl": "https://github.com/Zodi-ark/Dark-Knight-Expansion"
+}
