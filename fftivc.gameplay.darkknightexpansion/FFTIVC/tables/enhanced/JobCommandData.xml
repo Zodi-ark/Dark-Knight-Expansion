@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
-  WarOfTheLionsJobCommandData.xml
+This table file is used to overwrite the game's hardcoded job command table.
 
-  IMPORTANT 1: Only include entries/properties you've actually changed - this gets merged with
-  every other mod's changes to this table, cell by cell. Don't paste this whole file into your
-  own mod unmodified.
-  IMPORTANT 2: Id must be 224, 225, or 226 (0xE0-0xE2). This is a 3-entry extension of
-  JobCommandData, not a standalone table - see FFTOWarOfTheLionsJobCommandDataManager for why.
-  UPDATE: ability/RSM ids below are now filled in, decoded from the classic PSP SkillSetsBin.bin
-  (including the per-slot "add 256" extend-id flag bits stored in each entry's first 3 bytes -
-  missed in an earlier draft of this file, which is why some ids here differ from that draft's
-  comments, e.g. Darkness's 5th action is really 357/Unholy Sacrifice, not 101/Pummel).
-  Verified two ways: (1) re-decoded straight from the binary, byte for byte, matches exactly;
-  (2) cross-checked against FFTGenericJobs' own shipped Ability-en - it already restores real
-  names+effects for Dark Knight's core abilities (184/219/220/357, 484/485), confirming these
-  aren't just correct classic ids but genuinely live, working abilities today. Piracy's Plunder
-  family (358-366) is the exception - still unused everywhere checked, vanilla and
-  FFTGenericJobs both, since Sky Pirate was never part of that mod's scope. Fixed one bug from
-  the original submission: ExtendAbilityIdFlagBits was left at 0 on 224 and 225 despite both
-  having action values over 255, which would silently truncate to the wrong ability when written
-  (e.g. 357 -> 101) without the matching Extended flag set.
+Refer to: https://ffhacktics.com/wiki/Skillsets
+This table links to nex table 'JobCommand'. Some properties edited here may be overriden by the nex table.
 
-  Refer to: https://ffhacktics.com/wiki/Skillsets (classic PSP skillset reference)
+You can use this file as a base to edit Item data in your mod.
+Simply copy this file to your mod's folder under FFTIVC/tables/<enhanced/classic/combined>/JobCommandData.xml.
+
+IMPORTANT: You are free to remove everything and **SHOULD ONLY LEAVE ELEMENTS THAT YOU HAVE EDITED** to avoid conflicts between mods.
+Only properties that are actually included in this file will be tracked as edited. Properties not edited will inherit their
+value from the original table or, from other mods making changes depending on mod order.
+
+IMPORTANT 2: The Id property must NOT be removed for nodes that you're leaving here!
+
+IMPORTANT 3: Id must be 0-175 (main table, hardcoded size 176), OR 224-226 (Darkness/Piracy/
+Huntcraft - Dark Knight/Sky Pirate/Game Hunter's War of the Lions-exclusive skillsets). 176-223
+belong to MonsterJobCommandData, not this file. 224-226 aren't contiguous with 0-175 in memory -
+they're found via their own independent signature - but are tracked as part of this same table
+since they use the identical entry layout and are conceptually the same kind of data.
+
+IMPORTANT 4: You do not need to worry about setting ExtendAbilityIdFlagBits or ExtendReactionSupportMovementIdFlagBits.
+The loader will fill these according to ids. You're free to use ids 0-512 directly.
+
+For available flags, refer to https://github.com/Nenkai/fftivc.utility.modloader/blob/master/fftivc.utility.modloader.Interfaces/Tables/Structures/JOB_COMMAND_DATA.cs
 -->
-<WarOfTheLionsJobCommandTable>
+
+<JobCommandTable>
   <Version>1</Version>
   <Entries>
     <JobCommand>
-      <Id>224</Id>
-	  <!--  Darkness  -->
+      <Id>224</Id> <!--  Darkness / 暗黒  -->
       <ExtendAbilityIdFlagBits>ExtendedAbility5</ExtendAbilityIdFlagBits>
       <ExtendReactionSupportMovementIdFlagBits>ExtendRSMId4, ExtendRSMId3, ExtendRSMId2, ExtendRSMId1</ExtendReactionSupportMovementIdFlagBits>
       <AbilityId1>45</AbilityId1>  <!-- classic: Sanguine Sword -->
@@ -55,8 +58,7 @@
       <ReactionSupportMovementId6>0</ReactionSupportMovementId6>
     </JobCommand>
     <JobCommand>
-      <Id>225</Id>
-	  <!--  Piracy  -->
+      <Id>225</Id> <!--  Piracy / 空賊技  -->
       <ExtendAbilityIdFlagBits>ExtendedAbility4, ExtendedAbility9, ExtendedAbility10, ExtendedAbility11, ExtendedAbility12, ExtendedAbility13, ExtendedAbility14, ExtendedAbility15, ExtendedAbility16</ExtendAbilityIdFlagBits>
       <ExtendReactionSupportMovementIdFlagBits>ExtendRSMId6, ExtendRSMId5, ExtendRSMId4, ExtendRSMId3, ExtendRSMId2, ExtendRSMId1</ExtendReactionSupportMovementIdFlagBits>
       <AbilityId1>213</AbilityId1>   <!-- classic: Leg Shot -->
@@ -83,4 +85,4 @@
       <ReactionSupportMovementId6>486</ReactionSupportMovementId6>  <!-- classic: Move +1 -->
     </JobCommand>
   </Entries>
-</WarOfTheLionsJobCommandTable>
+</JobCommandTable>
